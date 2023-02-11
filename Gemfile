@@ -22,6 +22,8 @@ gem "sassc-rails"
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'htmlbeautifier'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'paperclip', '~>6.1'
+gem 'solargraph'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -1,11 +1,27 @@
-<p style="color: green"><%= notice %></p>
-<h1>Pins</h1>
-<div id="pins">
-  <% @pins.each do |pin| %>
-    <%= render pin %>
-    <p>
-      <%= link_to "Show this pin", pin %>
-    </p>
-  <% end %>
-</div>
-<%= link_to "New pin", new_pin_path %>
+<h1> Listing Pins</h1>
+<% if @pins.count == 0 %>
+  <strong>You have no pins yet</strong>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pins.each do |pin| %>
+        <tr>
+          <td><%= image_tag pin.image.url(:medium) %></td>
+          <td><%= pin.description%></td>
+          <td><%= link_to 'Show', pin %></td>
+          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+          <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+<br/>
+<%= link_to 'New Pin', new_pin_path %>
