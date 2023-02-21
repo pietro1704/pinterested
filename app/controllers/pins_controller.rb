@@ -1,13 +1,11 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: %i[ show edit update destroy ]
+  before_action :set_pin, only: [:show, :edit, :update, :destroy] # roda set pin antes de show, edit, update e destroy
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    # @ enable variable through all of our app
-    # Pin is our database object. All lists all pins in our database
     @pins = Pin.all
   end
 
@@ -15,7 +13,7 @@ class PinsController < ApplicationController
   end
 
   def new
-    @pin = Pin.new
+    @pin = Pin.new #creates nil object
   end
 
   def edit

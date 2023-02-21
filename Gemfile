@@ -1,7 +1,7 @@
 source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
 ruby "3.2.0"
-gem "rails", "~> 7.0.4"
+gem "rails"
 gem "sprockets-rails"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -19,10 +19,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'bootstrap-sass'
 gem 'htmlbeautifier'
-gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'paperclip', '~>6.1'
+gem 'devise'
 gem 'solargraph'
 
 group :development, :test do
@@ -44,6 +43,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.4', '>= 1.4.5'
-  gem 'rails_12factor', '0.0.2'
+  gem 'pg'
+  gem 'rails_12factor'
 end
