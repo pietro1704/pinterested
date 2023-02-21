@@ -1,17 +1,21 @@
 <h1> Listing Pins </h1>
 <% if @pins.count == 0 or @pins.nil? %>
-  <strong>You have no pins yet</strong>
+  <h1>You have no pins yet</h1>
 <% else %>
-  <h2>Image</h2>
   <% @pins.each do |pin| %>
-    <%= image_tag pin.image, width:"100%" %>
-    <br>
+    <h1>ID: <%= pin.id %></h1>
+    <% if pin.image.attached? %>
+      <h2>Image</h2>
+      <%= image_tag pin.image, width:"200px" %>
+      <br>
+    <% end %>
     <h2>Description</h2>
     <%= pin.description%>
     <br>
     <%= link_to 'Show', pin %>
     <%= link_to 'Edit', edit_pin_path(pin) %>
     <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br/>
   <% end %>
 <% end %>
 <br/>
