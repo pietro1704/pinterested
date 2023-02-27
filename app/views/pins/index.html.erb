@@ -1,4 +1,5 @@
 <h1> Listing Pins </h1>
+<%= link_to 'New Pin', new_pin_path , class: "btn btn-default"%>
 <% if @pins.count == 0 or @pins.nil? %>
   <h1>You have no pins yet</h1>
 <% else %>
@@ -17,4 +18,4 @@
   <% end %>
 <% end %>
 <br/>
-<%= link_to 'New Pin', new_pin_path %>
+<%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
