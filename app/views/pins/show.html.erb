@@ -3,10 +3,16 @@
   <strong> You have no pins yet</strong>
   <%= link_to 'New Pin', new_pin_path %>
 <% else %>
-  <%= image_tag @pin.image, width: "100%" %><br/>
+  <% if @pin.image.attached? %>
+    <h2>Image</h2>
+    <%= image_tag @pin.image, width:"400px" %>
+    <br>
+  <% else %>
+    <h2>--This pin has no image--</h2>
+  <% end %>
   <strong>Description:</strong>
   <%= @pin.description %>
   <br/>
-  <%= link_to 'Edit', edit_pin_path(@pin) %>
+  <%= link_to 'Edit', edit_pin_path(@pin) %><br/>
 <% end %>
 <%= link_to 'Back', pins_path %>
