@@ -3,18 +3,16 @@
   <h1>You have no pins yet</h1>
 <% else %>
   <% @pins.each do |pin| %>
-    <h1>ID: <%= pin.id %></h1>
+    <h1> <%= pin.id %> - <%= pin.description%></h1>
     <% if pin.image.attached? %>
-      <h2>Image</h2>
-      <%= image_tag pin.image, width:"200px" %>
+      <%= link_to image_tag(pin.image, width:"200px"), pin %>
       <br>
+    <% else %>
+      <h3><%= link_to 'Show Pin', pin %></h3>
     <% end %>
-    <h2>Description</h2>
-    <%= pin.description%>
     <br>
-    <%= link_to 'Show', pin %>
-    <%= link_to 'Edit', edit_pin_path(pin) %>
-    <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_pin_path(pin), class: "btn btn-default" %>
+    <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
     <br/>
   <% end %>
 <% end %>
