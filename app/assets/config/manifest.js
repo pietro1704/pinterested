@@ -1,6 +1,6 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .css
+//= link application.css
+//= link application.js
+//= link_tree ../../../vendor/javascript .js
 //= require bootstrap-sprockets
 //= require bootstrap
-//= link_tree ../../javascript .js
-//= link_tree ../../../vendor/javascript .js
